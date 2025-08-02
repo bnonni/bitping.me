@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("APP_DATABASE_URL")
+}
+
+model Alert {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  alertType    String
+  phoneNumber  String?
+  phoneCarrier String?
+  emailAddress String?
+  triggerPrice Float
+  triggerLogic String
+  sent         Boolean  @default(false)
+  paid         Boolean  @default(false)
+  exchange     String
+
+  // One-to-one Invoice (owning side)
+  invoice   Invoice? @relation(fields: [invoiceId], references: [id])
+  invoiceId String?  @unique
+}
+
+model Invoice {
+  id             String   @id
+  status         String
+  currency       String
+  amount         Float
+  paymentRequest String
+  expiresAt      DateTime
+  createdAt      DateTime @default(now())
+
+  // inverse of one-to-one relation with Alert
+  alert Alert?   // no fields or references needed here
+}
