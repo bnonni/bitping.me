@@ -1,12 +1,10 @@
-# BitPing.me — Bitcoin Price Alerts via SMS/Email (Lightning-Powered)
+# bitping.me
 
 **bitping.me** is a simple, no-frills **Bitcoin price alert service** that notifies you via **SMS or Email** when Bitcoin hits your target price. No accounts, no ads — just a fast BTC ping when you need it.
 
 ⚡ **Lightning Payments** — Pay per alert using the **Bitcoin Lightning Network**. No subscriptions. No credit cards.
 
 🌐 **Live at:** [https://bitping.me](https://bitping.me)
-
----
 
 ## ✨ Features
 - 🔔 **BTC/USD Price Alerts** via **SMS or Email (SMTP)**
@@ -16,16 +14,12 @@
 - 📈 Real-time price tracking with interval cloud function
 - 💡 Simple UI — set a target price, pay, get notified.
 
----
-
 ## 🚀 How It Works
 1. **Enter a target BTC/USD price** (e.g., "Alert me when BTC hits $40,000").
 2. Select your **preferred exchange** for price data.
 3. Choose **SMS or Email** for notifications.
 4. Pay the **Lightning invoice**.
 5. A scheduled cloud function monitors prices — you'll get a ping when it's time.
-
----
 
 ## 🧩 Tech Stack
 - **Frontend:** Next.js + React + TypeScript
@@ -36,8 +30,6 @@
 - **Notifications:** Mailgun API for SMS (via SMTP gateway) and Mailgun Email (via SMTP)
 - **Deployment:** Docker Container on App Platform or Netlify Functions
 - **Alert Runner:** Cloud function invoked on interval to process pending alerts
-
----
 
 ## 🏗️ Local Development
 1. **Fork and clone the repo:**
@@ -94,8 +86,6 @@
     pnpm dev
     ```
 
----
-
 ## 🏗️ Production Development
 
 COMING SOON
@@ -106,19 +96,13 @@ BitPing uses **Lightning Invoices** for quick, cheap, one-time payments. You can
 - Desktop Wallets (Zeus, Zap, etc.)
 - Lightning-enabled exchanges
 
----
-
 ## 🕒 Cloud Function for Price Monitoring
 - A **scheduled serverless function** (Netlify Function or Docker-based cron task) runs at fixed intervals.
 - This function checks pending alerts and sends notifications when target prices are met.
 - Make sure to configure your deployment platform to **invoke the function every X minutes**.
 
----
-
 ## 📬 Notifications
 SMS and Email alerts are sent through **SMTP gateways**. Ensure your SMTP provider supports sending SMS via Email-to-SMS gateways or use carrier-specific email formats.
-
----
 
 ## 📅 Roadmap
 - Add multi-currency support (EUR, GBP, etc.)
@@ -126,17 +110,11 @@ SMS and Email alerts are sent through **SMTP gateways**. Ensure your SMTP provid
 - Optional login and user dashboard to view active alerts
 - On-chain Bitcoin and Lightning Address payments (LNURL-Pay)
 
----
-
 ## 📜 License
 [Unlicense](LICENSE) - Free and unencumbered software released into the public domain.
 
----
-
 ## 🙌 Contributions
 PRs, issues, and feature requests are welcome! Feel free to open an [Issue](https://github.com/bnonni/bitping.me/issues) or submit a PR.
-
----
 
 ## 🔗 Live Demo
 Visit [https://bitping.me](https://bitping.me) and try it out.
