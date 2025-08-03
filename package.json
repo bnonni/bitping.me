@@ -5,13 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development next dev",
-    "build": "NODE_ENV=production next build",
+    "build": "pnpm db:generate && NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "db:generate": "prisma generate",
     "db:migrate-dev-init": "prisma migrate dev --name init",
     "db:migrate-dev": "prisma migrate dev",
-    "db:migrate-prod": "prisma migrate deploy"
+    "db:migrate-prod": "prisma migrate deploy",
+    "do:deploy": "pnpm do:build && pnpm do:push",
+    "do:build": "NODE_ENV=production docker build -t registry.digitalocean.com/${DO_REGISTRY_NAME}/bitping.me .",
+    "do:push": "NODE_ENV=production docker push registry.digitalocean.com/${DO_REGISTRY_NAME}/bitping.me"
   },
   "dependencies": {
     "form-data": "^4.0.3",
